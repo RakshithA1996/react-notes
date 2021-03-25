@@ -8,7 +8,6 @@ export default function Body(props) {
   const [displayNote, handleDisplayNote] = useState({});
 
   const toggleModal = (data) => {
-    console.log("clicked");
     if (isViewNote) {
       handleViewNote(false);
     } else {
@@ -27,7 +26,7 @@ export default function Body(props) {
         })}
       </div>
       {isViewNote ? (
-        <ViewNoteModal closeModal={toggleModal} data={displayNote} />
+        <ViewNoteModal closeModal={toggleModal} data={displayNote} removeNote={props.removeNote} />
       ) : (
         ""
       )}

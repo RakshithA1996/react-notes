@@ -14,7 +14,7 @@ export const NotesWrap = styled.div`
   }
 
   .notesTitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
   }

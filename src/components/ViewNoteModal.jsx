@@ -3,6 +3,12 @@ import { ViewNoteWrap } from "../styles/ViewModalStyle";
 import { IoMdCloseCircle } from "react-icons/io";
 
 export default function ViewNoteModal(props) {
+
+  const deleteNote = (id) => {
+    props.removeNote(id);
+    props.closeModal();
+  }
+
   return (
     <ViewNoteWrap>
       <div className="container">
@@ -19,7 +25,7 @@ export default function ViewNoteModal(props) {
           </div>
         </div>
         <div className="container__footer">
-          <button className="container__footer--button">Delete</button>
+          <button className="container__footer--button" onClick={()=>{deleteNote(props.data.id)}}>Delete</button>
         </div>
       </div>
     </ViewNoteWrap>
