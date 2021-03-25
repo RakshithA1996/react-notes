@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+const lightTheme = {
+  bgColor: "#ffffff",
+  border: "1px solid #e5e5e5",
+  color: "#000000",
+  border: "1px solid #e5e5e5",
+  headColor: "#000000",
+};
+
+const darkTheme = {
+  bgColor: "#383838",
+  border: "1px solid #4a4a4a",
+  color: "#b5b5b5",
+  border: "1px solid #4d4d4d",
+  headColor: "#ffffff",
+};
+
+const media = {
+  mobile: "@media(max-width:600px)",
+};
+
 export const AddNoteWrap = styled.div`
   display: flex;
   position: fixed;
@@ -13,10 +33,15 @@ export const AddNoteWrap = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
 
   .container {
-    background-color: #ffffff;
+    background-color: ${(props) =>
+      props.isDark ? darkTheme.bgColor : lightTheme.bgColor};
     margin: auto;
     width: 40%;
     padding: 1rem;
+
+    ${media.mobile} {
+      width: 100%;
+    }
 
     &__header {
       display: flex;
@@ -28,6 +53,8 @@ export const AddNoteWrap = styled.div`
       &--title {
         font-size: 1.2rem;
         font-weight: 600;
+        color: ${(props) =>
+          props.isDark ? darkTheme.headColor : lightTheme.headColor};
       }
 
       &--icon {
@@ -47,8 +74,12 @@ export const AddNoteWrap = styled.div`
 
       &--input,
       &--textarea {
-        border: 1px solid #e5e5e5;
+        border: ${(props) =>
+          props.isDark ? darkTheme.border : lightTheme.border};
         padding: 1rem;
+        background: transparent;
+        color: ${(props) =>
+          props.isDark ? darkTheme.headColor : lightTheme.headColor};
 
         &:focus {
           outline: none;

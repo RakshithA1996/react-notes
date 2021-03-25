@@ -1,5 +1,27 @@
 import styled from "styled-components";
 
+const lightTheme = {
+  bgColor: "#ffffff",
+  border: "1px solid #e5e5e5",
+  color: "#000000",
+  border: "1px solid #e5e5e5",
+  headColor: "#000000",
+  paraColor: "#000000",
+};
+
+const darkTheme = {
+  bgColor: "#383838",
+  border: "1px solid #4a4a4a",
+  color: "#b5b5b5",
+  border: "1px solid #4d4d4d",
+  headColor: "#ffffff",
+  paraColor: "#b5b5b5",
+};
+
+const media = {
+  mobile: "@media(max-width:600px)",
+};
+
 export const ViewNoteWrap = styled.div`
   display: flex;
   position: fixed;
@@ -13,10 +35,15 @@ export const ViewNoteWrap = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
 
   .container {
-    background-color: #ffffff;
+    background-color: ${(props) =>
+      props.isDark ? darkTheme.bgColor : lightTheme.bgColor};
     margin: auto;
     width: 30%;
     padding: 1rem;
+
+    ${media.mobile} {
+      width: 100%;
+    }
 
     &__header {
       display: flex;
@@ -28,6 +55,8 @@ export const ViewNoteWrap = styled.div`
       &--title {
         font-size: 1.2rem;
         font-weight: 600;
+        color: ${(props) =>
+          props.isDark ? darkTheme.headColor : lightTheme.headColor};
       }
 
       &--icon {
@@ -47,9 +76,12 @@ export const ViewNoteWrap = styled.div`
 
       &--input,
       &--textarea {
-        border: 1px solid #e5e5e5;
+        border: ${(props) =>
+          props.isDark ? darkTheme.border : lightTheme.border};
         padding: 1rem;
         text-align: left;
+        color: ${(props) =>
+          props.isDark ? darkTheme.paraColor : lightTheme.paraColor};
 
         &:focus {
           outline: none;
@@ -67,7 +99,7 @@ export const ViewNoteWrap = styled.div`
 
       &--button {
         width: 100%;
-        padding: 1rem;
+        padding: 0.6rem;
         border: none;
         background: red;
         color: #ffffff;

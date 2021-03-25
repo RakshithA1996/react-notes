@@ -1,13 +1,25 @@
 import styled from "styled-components";
 
+const lightTheme = {
+  border: "1px solid #e5e5e5",
+  color: "#000000",
+};
+
+const darkTheme = {
+  border: "1px solid #4a4a4a",
+  color: "#b5b5b5",
+};
+
 export const NotesWrap = styled.div`
-  border: 1px solid #e5e5e5;
+  border: ${(props) => (props.isDark ? darkTheme.border : lightTheme.border)};
+  color: ${(props) => (props.isDark ? darkTheme.color : lightTheme.color)};
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
+  min-height: 130px;
 
   &:hover {
     cursor: pointer;

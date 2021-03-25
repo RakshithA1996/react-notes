@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { AddNoteWrap } from "../styles/AddModalStyle";
+import { useSelector } from "react-redux";
 import { IoMdCloseCircle } from "react-icons/io";
 
 export default function AddNoteModal(props) {
   const [title, handleTitle] = useState("");
   const [description, handleDescription] = useState("");
+  const isDark = useSelector((state) => state.dark.mode);
 
   const setTitle = (e) => {
     handleTitle(e.target.value);
-  }
+  };
 
   const setDescription = (e) => {
     handleDescription(e.target.value);
-  }
+  };
 
   const saveNote = () => {
-    props.addNote({title:title,description: description});
+    props.addNote({ title: title, description: description });
     props.closeModal();
-  }
-
+  };
 
   return (
-    <AddNoteWrap>
+    <AddNoteWrap isDark={isDark}>
       <div className="container">
         <div className="container__header">
           <div className="container__header--title">Add Note</div>
@@ -45,7 +46,9 @@ export default function AddNoteModal(props) {
           />
         </div>
         <div className="container__footer">
-          <button className="container__footer--button" onClick={saveNote}>Save</button>
+          <button className="container__footer--button" onClick={saveNote}>
+            Save
+          </button>
         </div>
       </div>
     </AddNoteWrap>
