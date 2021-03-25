@@ -14,4 +14,4 @@ step 3 : When all the packages have been install then open terminal and run "npm
 
 Note: This appliction is also mobile responsive.
 
-This project is deployed in : 
+This project is deployed in : https://react-notes-rakshith.netlify.app/
