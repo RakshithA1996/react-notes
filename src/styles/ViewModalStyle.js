@@ -42,7 +42,8 @@ export const ViewNoteWrap = styled.div`
     padding: 1rem;
 
     ${media.mobile} {
-      width: 100%;
+      width: 84%;
+      border-radius: 6px;
     }
 
     &__header {
@@ -79,6 +80,7 @@ export const ViewNoteWrap = styled.div`
         border: ${(props) =>
           props.isDark ? darkTheme.border : lightTheme.border};
         padding: 1rem;
+        min-height: 20vh;
         text-align: left;
         color: ${(props) =>
           props.isDark ? darkTheme.paraColor : lightTheme.paraColor};

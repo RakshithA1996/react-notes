@@ -40,7 +40,8 @@ export const AddNoteWrap = styled.div`
     padding: 1rem;
 
     ${media.mobile} {
-      width: 100%;
+      width: 84%;
+      border-radius: 6px;
     }
 
     &__header {

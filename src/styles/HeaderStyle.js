@@ -42,6 +42,10 @@ export const HeaderWrap = styled.div`
     props.isDark ? darkTheme.boxShadow : lightTheme.boxShadow};
   box-sizing: border-box;
 
+  ${media.mobile} {
+    box-shadow: none;
+  }
+
   .heading {
     margin-left: 14rem;
     font-size: 2rem;
